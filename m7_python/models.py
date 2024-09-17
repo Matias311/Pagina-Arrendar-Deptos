@@ -13,18 +13,18 @@ class Detalle_Usuario(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     rut = models.CharField(max_length=9, null=False, blank=False)
     direccion = models.CharField(max_length=50)
-    telefono = models.IntegerField(max_length=9)
+    telefono = models.CharField(max_length=9)
     tipo_usuario = models.CharField(
         choices=Tipo_Usuario.choices, default=Tipo_Usuario.ARRENDADOR)
 
 
 class Comuna(models.Model):
-    id = models.AutoField()
+    id_comuna = models.IntegerField()
     nombre = models.CharField(max_length=50, null=False, blank=False)
 
 
 class Region(models.Model):
-    id = models.AutoField()
+    id_region = models.IntegerField()
     nombre = models.CharField(max_length=50, null=False, blank=False)
 
 
@@ -35,7 +35,7 @@ class Inmueble(models.Model):
         DEPARTAMENTO = 'D', 'Departamento'
         PARCELA = 'P', 'Parcela'
 
-    id_inmueble = models.AutoField(primary_key=True)
+    id_inmueble = models.CharField(primary_key=True)
     nombre = models.CharField(max_length=30, null=False, blank=False)
     descripcion = models.TextField(max_length=200, null=False, blank=False)
     disponible = models.BooleanField(default=True)
