@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.core.validators import MinValueValidator
 # Create your models here.
 
 
@@ -10,22 +10,34 @@ class Detalle_Usuario(models.Model):
         ARRENDADOR = 'Arrendador', 'Arrendador'
         ARRENDATARIO = 'Arrendatario', 'Arrendatario'
 
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    rut = models.CharField(max_length=9, null=False, blank=False)
+    usuario = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name='detalle_usuario')
+    rut = models.CharField(max_length=9, null=False, blank=False, unique=True)
     direccion = models.CharField(max_length=50)
     telefono = models.CharField(max_length=9)
     tipo_usuario = models.CharField(
         choices=Tipo_Usuario.choices, default=Tipo_Usuario.ARRENDADOR)
 
-
-class Comuna(models.Model):
-    id_comuna = models.IntegerField()
-    nombre = models.CharField(max_length=50, null=False, blank=False)
+    def __str__(self) -> str:
+        return f'Nombre: {self.usuario.first_name} {self.usuario.last_name} Rut: {self.rut} Tipo de usuario: {self.tipo_usuario}'
 
 
 class Region(models.Model):
-    id_region = models.IntegerField()
+    id_region = models.CharField(max_length=2, primary_key=True)
     nombre = models.CharField(max_length=50, null=False, blank=False)
+
+    def __str__(self) -> str:
+        return f'Comuna: {self.nombre}'
+
+
+class Comuna(models.Model):
+    id_comuna = models.CharField(max_length=2, primary_key=True)
+    nombre = models.CharField(max_length=50, null=False, blank=False)
+    region = models.ForeignKey(
+        Region, on_delete=models.RESTRICT, related_name='comunas')
+
+    def __str__(self) -> str:
+        return f'Comuna: {self.nombre}'
 
 
 class Inmueble(models.Model):
@@ -35,25 +47,28 @@ class Inmueble(models.Model):
         DEPARTAMENTO = 'D', 'Departamento'
         PARCELA = 'P', 'Parcela'
 
-    id_inmueble = models.CharField(primary_key=True)
-    nombre = models.CharField(max_length=30, null=False, blank=False)
-    descripcion = models.TextField(max_length=200, null=False, blank=False)
+    id_inmueble = models.CharField(primary_key=True, max_length=2)
+    nombre = models.CharField(max_length=350, null=False, blank=False)
+    descripcion = models.TextField(max_length=1200, null=False, blank=False)
     disponible = models.BooleanField(default=True)
-    m2_construidos = models.IntegerField()
-    m2_terreno = models.IntegerField()
+    m2_construidos = models.IntegerField(validators=[MinValueValidator(1)])
+    m2_terreno = models.IntegerField(validators=[MinValueValidator(1)])
     cant_estacionamiento = models.IntegerField()
-    cant_banos = models.IntegerField()
-    cant_habitaciones = models.IntegerField()
-    direccion = models.CharField(max_length=50, null=False, blank=False)
+    cant_banos = models.IntegerField(validators=[MinValueValidator(1)])
+    cant_habitaciones = models.IntegerField(validators=[MinValueValidator(1)])
+    direccion = models.CharField(max_length=150, null=False, blank=False)
     tipo_inmueble = models.CharField(
         choices=Tipo_Inmueble.choices, default=Tipo_Inmueble.DEPARTAMENTO)
-    precio_arriendo = models.IntegerField(null=False, blank=False)
+    precio_arriendo = models.IntegerField(
+        null=False, blank=False, validators=[MinValueValidator(1000)])
+    is_active = models.BooleanField(default=True)
     arrendador = models.ForeignKey(
-        User, related_name='inmueble', on_delete=models.RESTRICT)  # Arrendador
+        User, related_name='inmuebles', on_delete=models.RESTRICT)  # Arrendador
     comuna = models.ForeignKey(
-        Comuna, related_name='inmueble', on_delete=models.RESTRICT)
-    region = models.ForeignKey(
-        Region, related_name='inmueble', on_delete=models.CASCADE)
+        Comuna, related_name='inmuebles', on_delete=models.RESTRICT)
+
+    def __str__(self) -> str:
+        return f'Nombre: {self.nombre}\nDescripcion: {self.descripcion}\nDisponible:{self.disponible}\nTipo de inmueble: {self.tipo_inmueble}\nPrecio de arriendo: {self.precio_arriendo}'
 
 
 class Status(models.Model):
@@ -68,3 +83,6 @@ class Status(models.Model):
         Inmueble, related_name='status', on_delete=models.RESTRICT)
     arrendatario = models.ForeignKey(
         User, related_name='status', on_delete=models.RESTRICT)  # Arrendatario
+
+    def __str__(self) -> str:
+        return f'Estado: {self.estado} Inmueble: {self.inmueble.nombre} Arrendatario: {self.arrendatario.first_name} {self.arrendatario.last_name}'
