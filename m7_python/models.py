@@ -23,7 +23,7 @@ class Detalle_Usuario(models.Model):
 
 
 class Region(models.Model):
-    id_region = models.CharField(max_length=2, primary_key=True)
+    cod = models.CharField(max_length=2, primary_key=True)
     nombre = models.CharField(max_length=50, null=False, blank=False)
 
     def __str__(self) -> str:
@@ -31,7 +31,7 @@ class Region(models.Model):
 
 
 class Comuna(models.Model):
-    id_comuna = models.CharField(max_length=2, primary_key=True)
+    cod = models.CharField(max_length=2, primary_key=True)
     nombre = models.CharField(max_length=50, null=False, blank=False)
     region = models.ForeignKey(
         Region, on_delete=models.RESTRICT, related_name='comunas')
@@ -54,18 +54,18 @@ class Inmueble(models.Model):
     m2_construidos = models.IntegerField(validators=[MinValueValidator(1)])
     m2_terreno = models.IntegerField(validators=[MinValueValidator(1)])
     cant_estacionamiento = models.IntegerField()
-    cant_banos = models.IntegerField(validators=[MinValueValidator(1)])
     cant_habitaciones = models.IntegerField(validators=[MinValueValidator(1)])
+    cant_banos = models.IntegerField(validators=[MinValueValidator(1)])
     direccion = models.CharField(max_length=150, null=False, blank=False)
     tipo_inmueble = models.CharField(
         choices=Tipo_Inmueble.choices, default=Tipo_Inmueble.DEPARTAMENTO)
     precio_arriendo = models.IntegerField(
         null=False, blank=False, validators=[MinValueValidator(1000)])
     is_active = models.BooleanField(default=True)
-    arrendador = models.ForeignKey(
-        User, related_name='inmuebles', on_delete=models.RESTRICT)  # Arrendador
     comuna = models.ForeignKey(
         Comuna, related_name='inmuebles', on_delete=models.RESTRICT)
+    arrendador = models.ForeignKey(
+        User, related_name='inmuebles', on_delete=models.RESTRICT)  # Arrendador
 
     def __str__(self) -> str:
         return f'Nombre: {self.nombre}\nDescripcion: {self.descripcion}\nDisponible:{self.disponible}\nTipo de inmueble: {self.tipo_inmueble}\nPrecio de arriendo: {self.precio_arriendo}'
