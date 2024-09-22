@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .services import obtener_todos_inmuebles
 
-# Create your views here.
+# Define la vista home
+
+
+def home(request):
+    inmuebles = obtener_todos_inmuebles()
+    return render(request, 'index.html', {'inmuebles': inmuebles})
