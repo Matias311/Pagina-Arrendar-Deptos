@@ -14,7 +14,7 @@ class Detalle_Usuario(models.Model):
         User, on_delete=models.CASCADE, related_name='detalle_usuario')
     rut = models.CharField(max_length=9, null=False, blank=False, unique=True)
     direccion = models.CharField(max_length=50)
-    telefono = models.CharField(max_length=9)
+    telefono = models.CharField(max_length=9, null=True)
     tipo_usuario = models.CharField(
         choices=Tipo_Usuario.choices, default=Tipo_Usuario.ARRENDADOR)
 
@@ -23,7 +23,7 @@ class Detalle_Usuario(models.Model):
 
 
 class Region(models.Model):
-    cod = models.CharField(max_length=2, primary_key=True)
+    cod = models.CharField(max_length=10, primary_key=True)
     nombre = models.CharField(max_length=50, null=False, blank=False)
 
     def __str__(self) -> str:
@@ -31,7 +31,7 @@ class Region(models.Model):
 
 
 class Comuna(models.Model):
-    cod = models.CharField(max_length=2, primary_key=True)
+    cod = models.CharField(max_length=10, primary_key=True)
     nombre = models.CharField(max_length=50, null=False, blank=False)
     region = models.ForeignKey(
         Region, on_delete=models.RESTRICT, related_name='comunas')

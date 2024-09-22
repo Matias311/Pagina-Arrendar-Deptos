@@ -1,402 +1,402 @@
 [
-    {
-        "model": "m7_python.inmueble",
-        "pk": 1,
-        "fields": {
-            "id_inmueble": "1",
-            "nombre": "Casa Acogedora",
-            "descripcion": "Amplia casa con jardín",
-            "disponible": true,
-            "m2_construidos": 200,
-            "m2_terreno": 300,
-            "cant_estacionamiento": 2,
-            "cant_habitaciones": 4,
-            "cant_banos": 3,
-            "direccion": "Calle Principal 123",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.CASA",
-            "precio_arriendo": 500000,
-            "comuna": "01101",
-            "arrendador": 1
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 2,
-        "fields": {
-            "id_inmueble": "2",
-            "nombre": "Departamento Moderno",
-            "descripcion": "Departamento céntrico con vista al mar",
-            "disponible": true,
-            "m2_construidos": 80,
-            "m2_terreno": 100,
-            "cant_estacionamiento": 1,
-            "cant_habitaciones": 2,
-            "cant_banos": 1,
-            "direccion": "Avenida Central 456",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.DEPARTAMENTO",
-            "precio_arriendo": 300000,
-            "comuna": "03102",
-            "arrendador": 4
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 3,
-        "fields": {
-            "id_inmueble": "3",
-            "nombre": "Casa de Playa",
-            "descripcion": "Casa frente al mar",
-            "disponible": true,
-            "m2_construidos": 150,
-            "m2_terreno": 250,
-            "cant_estacionamiento": 3,
-            "cant_habitaciones": 3,
-            "cant_banos": 2,
-            "direccion": "Playa del Sol 789",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.CASA",
-            "precio_arriendo": 700000,
-            "comuna": "04102",
-            "arrendador": 2
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 4,
-        "fields": {
-            "id_inmueble": "4",
-            "nombre": "Loft Urbano",
-            "descripcion": "Loft en el corazón de la ciudad",
-            "disponible": true,
-            "m2_construidos": 60,
-            "m2_terreno": 80,
-            "cant_estacionamiento": 0,
-            "cant_habitaciones": 1,
-            "cant_banos": 1,
-            "direccion": "Calle Urbana 101",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.DEPARTAMENTO",
-            "precio_arriendo": 200000,
-            "comuna": "04301",
-            "arrendador": 4
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 5,
-        "fields": {
-            "id_inmueble": "5",
-            "nombre": "Apartamento Elegante",
-            "descripcion": "Apartamento con acabados de lujo",
-            "disponible": true,
-            "m2_construidos": 100,
-            "m2_terreno": 120,
-            "cant_estacionamiento": 1,
-            "cant_habitaciones": 2,
-            "cant_banos": 2,
-            "direccion": "Avenida Elegancia 222",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.DEPARTAMENTO",
-            "precio_arriendo": 400000,
-            "comuna": "05101",
-            "arrendador": 4
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 6,
-        "fields": {
-            "id_inmueble": "6",
-            "nombre": "Casa Familiar",
-            "descripcion": "Amplia casa para toda la familia",
-            "disponible": true,
-            "m2_construidos": 180,
-            "m2_terreno": 220,
-            "cant_estacionamiento": 2,
-            "cant_habitaciones": 5,
-            "cant_banos": 3,
-            "direccion": "Calle Felicidad 333",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.CASA",
-            "precio_arriendo": 600000,
-            "comuna": "05109",
-            "arrendador": 4
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 7,
-        "fields": {
-            "id_inmueble": "7",
-            "nombre": "Penthouse con Vistas",
-            "descripcion": "Penthouse con terraza panorámica",
-            "disponible": true,
-            "m2_construidos": 120,
-            "m2_terreno": 150,
-            "cant_estacionamiento": 2,
-            "cant_habitaciones": 3,
-            "cant_banos": 2,
-            "direccion": "Avenida Vista 444",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.PARCELA",
-            "precio_arriendo": 800000,
-            "comuna": "05403",
-            "arrendador": 3
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 8,
-        "fields": {
-            "id_inmueble": "8",
-            "nombre": "Estudio Acogedor",
-            "descripcion": "Estudio ideal para solteros",
-            "disponible": true,
-            "m2_construidos": 40,
-            "m2_terreno": 50,
-            "cant_estacionamiento": 0,
-            "cant_habitaciones": 1,
-            "cant_banos": 1,
-            "direccion": "Calle Solitaria 555",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.DEPARTAMENTO",
-            "precio_arriendo": 150000,
-            "comuna": "05401",
-            "arrendador": 5
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 9,
-        "fields": {
-            "id_inmueble": "9",
-            "nombre": "Casa Rústica",
-            "descripcion": "Casa de campo con chimenea",
-            "disponible": true,
-            "m2_construidos": 160,
-            "m2_terreno": 200,
-            "cant_estacionamiento": 1,
-            "cant_habitaciones": 4,
-            "cant_banos": 2,
-            "direccion": "Camino Rural 666",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.CASA",
-            "precio_arriendo": 550000,
-            "comuna": "05701",
-            "arrendador": 3
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 10,
-        "fields": {
-            "id_inmueble": "10",
-            "nombre": "Apartamento Minimalista",
-            "descripcion": "Apartamento con diseño minimalista",
-            "disponible": true,
-            "m2_construidos": 70,
-            "m2_terreno": 90,
-            "cant_estacionamiento": 1,
-            "cant_habitaciones": 1,
-            "cant_banos": 1,
-            "direccion": "Avenida Minimal 777",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.PARCELA",
-            "precio_arriendo": 250000,
-            "comuna": "05804",
-            "arrendador": 4
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 11,
-        "fields": {
-            "id_inmueble": "11",
-            "nombre": "Casa Tranquila",
-            "descripcion": "Casa en zona residencial",
-            "disponible": true,
-            "m2_construidos": 140,
-            "m2_terreno": 180,
-            "cant_estacionamiento": 2,
-            "cant_habitaciones": 4,
-            "cant_banos": 2,
-            "direccion": "Calle Calma 888",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.CASA",
-            "precio_arriendo": 650000,
-            "comuna": "06202",
-            "arrendador": 2
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 12,
-        "fields": {
-            "id_inmueble": "12",
-            "nombre": "Loft de Diseño",
-            "descripcion": "Loft con diseño moderno y elegante",
-            "disponible": true,
-            "m2_construidos": 90,
-            "m2_terreno": 110,
-            "cant_estacionamiento": 1,
-            "cant_habitaciones": 2,
-            "cant_banos": 1,
-            "direccion": "Calle Diseño 999",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.DEPARTAMENTO",
-            "precio_arriendo": 350000,
-            "comuna": "06303",
-            "arrendador": 5
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 13,
-        "fields": {
-            "id_inmueble": "13",
-            "nombre": "Casa Contemporánea",
-            "descripcion": "Casa con estilo contemporáneo",
-            "disponible": true,
-            "m2_construidos": 200,
-            "m2_terreno": 250,
-            "cant_estacionamiento": 2,
-            "cant_habitaciones": 4,
-            "cant_banos": 3,
-            "direccion": "Avenida Contemporánea 1000",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.CASA",
-            "precio_arriendo": 700000,
-            "comuna": "07101",
-            "arrendador": 1
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 14,
-        "fields": {
-            "id_inmueble": "14",
-            "nombre": "Departamento de Lujo",
-            "descripcion": "Departamento en zona exclusiva",
-            "disponible": true,
-            "m2_construidos": 110,
-            "m2_terreno": 130,
-            "cant_estacionamiento": 2,
-            "cant_habitaciones": 3,
-            "cant_banos": 2,
-            "direccion": "Calle Lujo 1111",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.DEPARTAMENTO",
-            "precio_arriendo": 500000,
-            "comuna": "07304",
-            "arrendador": 1
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 15,
-        "fields": {
-            "id_inmueble": "15",
-            "nombre": "Casa Moderna",
-            "descripcion": "Casa con acabados modernos",
-            "disponible": true,
-            "m2_construidos": 170,
-            "m2_terreno": 210,
-            "cant_estacionamiento": 2,
-            "cant_habitaciones": 5,
-            "cant_banos": 3,
-            "direccion": "Calle Moderna 1212",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.CASA",
-            "precio_arriendo": 600000,
-            "comuna": "07402",
-            "arrendador": 3
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 16,
-        "fields": {
-            "id_inmueble": "16",
-            "nombre": "Departamento Espacioso",
-            "descripcion": "Departamento amplio en el centro",
-            "disponible": true,
-            "m2_construidos": 120,
-            "m2_terreno": 150,
-            "cant_estacionamiento": 2,
-            "cant_habitaciones": 3,
-            "cant_banos": 2,
-            "direccion": "Avenida Espacio 1313",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.DEPARTAMENTO",
-            "precio_arriendo": 400000,
-            "comuna": "08102",
-            "arrendador": 5
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 17,
-        "fields": {
-            "id_inmueble": "17",
-            "nombre": "Casa de Campo",
-            "descripcion": "Casa en un entorno rural",
-            "disponible": true,
-            "m2_construidos": 150,
-            "m2_terreno": 200,
-            "cant_estacionamiento": 2,
-            "cant_habitaciones": 4,
-            "cant_banos": 2,
-            "direccion": "Camino de Campo 1414",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.CASA",
-            "precio_arriendo": 550000,
-            "comuna": "08313",
-            "arrendador": 2
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 18,
-        "fields": {
-            "id_inmueble": "18",
-            "nombre": "Loft de Diseño Industrial",
-            "descripcion": "Loft con diseño industrial",
-            "disponible": true,
-            "m2_construidos": 100,
-            "m2_terreno": 120,
-            "cant_estacionamiento": 1,
-            "cant_habitaciones": 2,
-            "cant_banos": 1,
-            "direccion": "Calle Industrial 1515",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.DEPARTAMENTO",
-            "precio_arriendo": 300000,
-            "comuna": "09115",
-            "arrendador": 4
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 19,
-        "fields": {
-            "id_inmueble": "19",
-            "nombre": "Casa de Verano",
-            "descripcion": "Casa para disfrutar el verano",
-            "disponible": true,
-            "m2_construidos": 130,
-            "m2_terreno": 180,
-            "cant_estacionamiento": 1,
-            "cant_habitaciones": 3,
-            "cant_banos": 2,
-            "direccion": "Playa de Verano 1616",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.CASA",
-            "precio_arriendo": 600000,
-            "comuna": "09207",
-            "arrendador": 5
-        }
-    },
-    {
-        "model": "m7_python.inmueble",
-        "pk": 20,
-        "fields": {
-            "id_inmueble": "20",
-            "nombre": "Apartamento Chic",
-            "descripcion": "Apartamento con estilo chic",
-            "disponible": true,
-            "m2_construidos": 80,
-            "m2_terreno": 100,
-            "cant_estacionamiento": 1,
-            "cant_habitaciones": 2,
-            "cant_banos": 1,
-            "direccion": "Calle Chic 1717",
-            "tipo_inmueble": "Inmueble.Tipo_Inmueble.DEPARTAMENTO",
-            "precio_arriendo": 280000,
-            "comuna": "10301",
-            "arrendador": 1
-        }
+  {
+    "model": "m7_python.inmueble",
+    "pk": 1,
+    "fields": {
+      "id_inmueble": "1",
+      "nombre": "Casa Acogedora",
+      "descripcion": "Amplia casa con jard\u00edn",
+      "disponible": true,
+      "m2_construidos": 200,
+      "m2_terreno": 300,
+      "cant_estacionamiento": 2,
+      "cant_habitaciones": 4,
+      "cant_banos": 3,
+      "direccion": "Calle Principal 123",
+      "tipo_inmueble": "C",
+      "precio_arriendo": 500000,
+      "comuna": "01101",
+      "arrendador": 1
     }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 2,
+    "fields": {
+      "id_inmueble": "2",
+      "nombre": "Departamento Moderno",
+      "descripcion": "Departamento c\u00e9ntrico con vista al mar",
+      "disponible": true,
+      "m2_construidos": 80,
+      "m2_terreno": 100,
+      "cant_estacionamiento": 1,
+      "cant_habitaciones": 2,
+      "cant_banos": 1,
+      "direccion": "Avenida Central 456",
+      "tipo_inmueble": "D",
+      "precio_arriendo": 300000,
+      "comuna": "03102",
+      "arrendador": 4
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 3,
+    "fields": {
+      "id_inmueble": "3",
+      "nombre": "Casa de Playa",
+      "descripcion": "Casa frente al mar",
+      "disponible": true,
+      "m2_construidos": 150,
+      "m2_terreno": 250,
+      "cant_estacionamiento": 3,
+      "cant_habitaciones": 3,
+      "cant_banos": 2,
+      "direccion": "Playa del Sol 789",
+      "tipo_inmueble": "C",
+      "precio_arriendo": 700000,
+      "comuna": "04102",
+      "arrendador": 2
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 4,
+    "fields": {
+      "id_inmueble": "4",
+      "nombre": "Loft Urbano",
+      "descripcion": "Loft en el coraz\u00f3n de la ciudad",
+      "disponible": true,
+      "m2_construidos": 60,
+      "m2_terreno": 80,
+      "cant_estacionamiento": 0,
+      "cant_habitaciones": 1,
+      "cant_banos": 1,
+      "direccion": "Calle Urbana 101",
+      "tipo_inmueble": "D",
+      "precio_arriendo": 200000,
+      "comuna": "04301",
+      "arrendador": 4
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 5,
+    "fields": {
+      "id_inmueble": "5",
+      "nombre": "Apartamento Elegante",
+      "descripcion": "Apartamento con acabados de lujo",
+      "disponible": true,
+      "m2_construidos": 100,
+      "m2_terreno": 120,
+      "cant_estacionamiento": 1,
+      "cant_habitaciones": 2,
+      "cant_banos": 2,
+      "direccion": "Avenida Elegancia 222",
+      "tipo_inmueble": "D",
+      "precio_arriendo": 400000,
+      "comuna": "05101",
+      "arrendador": 4
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 6,
+    "fields": {
+      "id_inmueble": "6",
+      "nombre": "Casa Familiar",
+      "descripcion": "Amplia casa para toda la familia",
+      "disponible": true,
+      "m2_construidos": 180,
+      "m2_terreno": 220,
+      "cant_estacionamiento": 2,
+      "cant_habitaciones": 5,
+      "cant_banos": 3,
+      "direccion": "Calle Felicidad 333",
+      "tipo_inmueble": "C",
+      "precio_arriendo": 600000,
+      "comuna": "05109",
+      "arrendador": 4
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 7,
+    "fields": {
+      "id_inmueble": "7",
+      "nombre": "Penthouse con Vistas",
+      "descripcion": "Penthouse con terraza panor\u00e1mica",
+      "disponible": true,
+      "m2_construidos": 120,
+      "m2_terreno": 150,
+      "cant_estacionamiento": 2,
+      "cant_habitaciones": 3,
+      "cant_banos": 2,
+      "direccion": "Avenida Vista 444",
+      "tipo_inmueble": "P",
+      "precio_arriendo": 800000,
+      "comuna": "05403",
+      "arrendador": 3
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 8,
+    "fields": {
+      "id_inmueble": "8",
+      "nombre": "Estudio Acogedor",
+      "descripcion": "Estudio ideal para solteros",
+      "disponible": true,
+      "m2_construidos": 40,
+      "m2_terreno": 50,
+      "cant_estacionamiento": 0,
+      "cant_habitaciones": 1,
+      "cant_banos": 1,
+      "direccion": "Calle Solitaria 555",
+      "tipo_inmueble": "D",
+      "precio_arriendo": 150000,
+      "comuna": "05401",
+      "arrendador": 5
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 9,
+    "fields": {
+      "id_inmueble": "9",
+      "nombre": "Casa R\u00fastica",
+      "descripcion": "Casa de campo con chimenea",
+      "disponible": true,
+      "m2_construidos": 160,
+      "m2_terreno": 200,
+      "cant_estacionamiento": 1,
+      "cant_habitaciones": 4,
+      "cant_banos": 2,
+      "direccion": "Camino Rural 666",
+      "tipo_inmueble": "C",
+      "precio_arriendo": 550000,
+      "comuna": "05701",
+      "arrendador": 3
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 10,
+    "fields": {
+      "id_inmueble": "10",
+      "nombre": "Apartamento Minimalista",
+      "descripcion": "Apartamento con dise\u00f1o minimalista",
+      "disponible": true,
+      "m2_construidos": 70,
+      "m2_terreno": 90,
+      "cant_estacionamiento": 1,
+      "cant_habitaciones": 1,
+      "cant_banos": 1,
+      "direccion": "Avenida Minimal 777",
+      "tipo_inmueble": "P",
+      "precio_arriendo": 250000,
+      "comuna": "05804",
+      "arrendador": 4
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 11,
+    "fields": {
+      "id_inmueble": "11",
+      "nombre": "Casa Tranquila",
+      "descripcion": "Casa en zona residencial",
+      "disponible": true,
+      "m2_construidos": 140,
+      "m2_terreno": 180,
+      "cant_estacionamiento": 2,
+      "cant_habitaciones": 4,
+      "cant_banos": 2,
+      "direccion": "Calle Calma 888",
+      "tipo_inmueble": "C",
+      "precio_arriendo": 650000,
+      "comuna": "06202",
+      "arrendador": 2
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 12,
+    "fields": {
+      "id_inmueble": "12",
+      "nombre": "Loft de Dise\u00f1o",
+      "descripcion": "Loft con dise\u00f1o moderno y elegante",
+      "disponible": true,
+      "m2_construidos": 90,
+      "m2_terreno": 110,
+      "cant_estacionamiento": 1,
+      "cant_habitaciones": 2,
+      "cant_banos": 1,
+      "direccion": "Calle Dise\u00f1o 999",
+      "tipo_inmueble": "D",
+      "precio_arriendo": 350000,
+      "comuna": "06303",
+      "arrendador": 5
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 13,
+    "fields": {
+      "id_inmueble": "13",
+      "nombre": "Casa Contempor\u00e1nea",
+      "descripcion": "Casa con estilo contempor\u00e1neo",
+      "disponible": true,
+      "m2_construidos": 200,
+      "m2_terreno": 250,
+      "cant_estacionamiento": 2,
+      "cant_habitaciones": 4,
+      "cant_banos": 3,
+      "direccion": "Avenida Contempor\u00e1nea 1000",
+      "tipo_inmueble": "C",
+      "precio_arriendo": 700000,
+      "comuna": "07101",
+      "arrendador": 1
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 14,
+    "fields": {
+      "id_inmueble": "14",
+      "nombre": "Departamento de Lujo",
+      "descripcion": "Departamento en zona exclusiva",
+      "disponible": true,
+      "m2_construidos": 110,
+      "m2_terreno": 130,
+      "cant_estacionamiento": 2,
+      "cant_habitaciones": 3,
+      "cant_banos": 2,
+      "direccion": "Calle Lujo 1111",
+      "tipo_inmueble": "D",
+      "precio_arriendo": 500000,
+      "comuna": "07304",
+      "arrendador": 1
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 15,
+    "fields": {
+      "id_inmueble": "15",
+      "nombre": "Casa Moderna",
+      "descripcion": "Casa con acabados modernos",
+      "disponible": true,
+      "m2_construidos": 170,
+      "m2_terreno": 210,
+      "cant_estacionamiento": 2,
+      "cant_habitaciones": 5,
+      "cant_banos": 3,
+      "direccion": "Calle Moderna 1212",
+      "tipo_inmueble": "C",
+      "precio_arriendo": 600000,
+      "comuna": "07402",
+      "arrendador": 3
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 16,
+    "fields": {
+      "id_inmueble": "16",
+      "nombre": "Departamento Espacioso",
+      "descripcion": "Departamento amplio en el centro",
+      "disponible": true,
+      "m2_construidos": 120,
+      "m2_terreno": 150,
+      "cant_estacionamiento": 2,
+      "cant_habitaciones": 3,
+      "cant_banos": 2,
+      "direccion": "Avenida Espacio 1313",
+      "tipo_inmueble": "D",
+      "precio_arriendo": 400000,
+      "comuna": "08102",
+      "arrendador": 5
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 17,
+    "fields": {
+      "id_inmueble": "17",
+      "nombre": "Casa de Campo",
+      "descripcion": "Casa en un entorno rural",
+      "disponible": true,
+      "m2_construidos": 150,
+      "m2_terreno": 200,
+      "cant_estacionamiento": 2,
+      "cant_habitaciones": 4,
+      "cant_banos": 2,
+      "direccion": "Camino de Campo 1414",
+      "tipo_inmueble": "C",
+      "precio_arriendo": 550000,
+      "comuna": "08313",
+      "arrendador": 2
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 18,
+    "fields": {
+      "id_inmueble": "18",
+      "nombre": "Loft de Dise\u00f1o Industrial",
+      "descripcion": "Loft con dise\u00f1o industrial",
+      "disponible": true,
+      "m2_construidos": 100,
+      "m2_terreno": 120,
+      "cant_estacionamiento": 1,
+      "cant_habitaciones": 2,
+      "cant_banos": 1,
+      "direccion": "Calle Industrial 1515",
+      "tipo_inmueble": "D",
+      "precio_arriendo": 300000,
+      "comuna": "09115",
+      "arrendador": 4
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 19,
+    "fields": {
+      "id_inmueble": "19",
+      "nombre": "Casa de Verano",
+      "descripcion": "Casa para disfrutar el verano",
+      "disponible": true,
+      "m2_construidos": 130,
+      "m2_terreno": 180,
+      "cant_estacionamiento": 1,
+      "cant_habitaciones": 3,
+      "cant_banos": 2,
+      "direccion": "Playa de Verano 1616",
+      "tipo_inmueble": "C",
+      "precio_arriendo": 600000,
+      "comuna": "09207",
+      "arrendador": 5
+    }
+  },
+  {
+    "model": "m7_python.inmueble",
+    "pk": 20,
+    "fields": {
+      "id_inmueble": "20",
+      "nombre": "Apartamento Chic",
+      "descripcion": "Apartamento con estilo chic",
+      "disponible": true,
+      "m2_construidos": 80,
+      "m2_terreno": 100,
+      "cant_estacionamiento": 1,
+      "cant_habitaciones": 2,
+      "cant_banos": 1,
+      "direccion": "Calle Chic 1717",
+      "tipo_inmueble": "D",
+      "precio_arriendo": 280000,
+      "comuna": "10301",
+      "arrendador": 1
+    }
+  }
 ]
