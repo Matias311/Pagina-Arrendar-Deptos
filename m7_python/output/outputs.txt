@@ -1,0 +1,36 @@
+Inmuebles en arriendo filtrando la comuna con raw
+Casa Acogedora 
+ Descripcion: Amplia casa con jardín
+---------------------------------------------
+Inmuebles en arriendo filtrando la comuna con orm
+Casa Contemporánea 
+ Descripcion: Casa con estilo contemporáneo
+---------------------------------------------
+Inmuebles en arriendo filtrando la region con raw
+Inmueble: Casa Acogedora
+Descripción: Amplia casa con jardín
+Precio: 500000
+Comuna: Iquique
+Región: De Tarapacá
+-------------------------------------------------------
+Inmuebles en arriendo filtrando la region con raw
+Inmueble: Departamento Moderno
+Descripción: Departamento céntrico con vista al mar
+Precio: 300000
+Comuna: Caldera
+Región: De Atacama
+-------------------------------------------------------
+Inmuebles en arriendo filtrando la region con orm
+Inmueble: Casa Acogedora
+Descripcion: Amplia casa con jardín
+Precio: 500000
+Comuna: Iquique
+Region: De Tarapacá
+----------------------------------------------------------
+Inmuebles en arriendo filtrando la region con orm
+Inmueble: Departamento Moderno
+Descripcion: Departamento céntrico con vista al mar
+Precio: 300000
+Comuna: Caldera
+Region: De Atacama
+----------------------------------------------------------
