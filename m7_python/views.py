@@ -6,4 +6,4 @@ from .services import obtener_todos_inmuebles
 
 def home(request):
     inmuebles = obtener_todos_inmuebles()
-    return render(request, 'index.html', {'inmuebles': inmuebles})
+    return render(request, 'home.html', {'inmuebles': inmuebles})

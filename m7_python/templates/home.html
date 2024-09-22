@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block 'content' %}
+<section class="row justify-content-center">
+  {% for i in inmuebles %}
+  <div class="col-md-4 d-flex align-items-stretch mb-4">
+    <div class="card" style="width: 100%">
+      <img
+        src="https://definicion.de/wp-content/uploads/2010/12/casa.jpg"
+        class="card-img-top"
+        alt="imagen del inmueble"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{i.nombre}}</h5>
+        <p class="card-text">{{i.descripcion}}</p>
+        <a href="#" class="btn btn-primary">Ver Inmueble</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}
