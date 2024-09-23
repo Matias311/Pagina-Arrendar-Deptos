@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% block 'content' %}
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="w-75">
+    <h2 class="text-center mb-4">Editar Perfil</h2>
+    <form method="post" class="bg-light p-5 rounded shadow">
+      {% csrf_token %}
+
+      <h4 class="mb-3">Datos del Usuario</h4>
+      <div class="mb-3">
+        <label for="{{ form_usuario.first_name.id_for_label }}">Nombre</label>
+        <div class="text-center">
+          {{ form_usuario.first_name }} {% if form_usuario.first_name.errors %}
+          <div class="text-danger">{{ form_usuario.first_name.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form_usuario.last_name.id_for_label }}">Apellido</label>
+        <div class="text-center">
+          {{ form_usuario.last_name }} {% if form_usuario.last_name.errors %}
+          <div class="text-danger">{{ form_usuario.last_name.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form_usuario.email.id_for_label }}"
+          >Correo Electrónico</label
+        >
+        <div class="text-center">
+          {{ form_usuario.email }} {% if form_usuario.email.errors %}
+          <div class="text-danger">{{ form_usuario.email.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <h4 class="mb-3">Detalles del Usuario</h4>
+
+      <div class="mb-3">
+        <label for="{{ form_detalle.rut.id_for_label }}">RUT</label>
+        <div class="text-center">
+          {{ form_detalle.rut }} {% if form_detalle.rut.errors %}
+          <div class="text-danger">{{ form_detalle.rut.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form_detalle.direccion.id_for_label }}">Dirección</label>
+        <div class="text-center">
+          {{ form_detalle.direccion }} {% if form_detalle.direccion.errors %}
+          <div class="text-danger">{{ form_detalle.direccion.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form_detalle.telefono.id_for_label }}">Teléfono</label>
+        <div class="text-center">
+          {{ form_detalle.telefono }} {% if form_detalle.telefono.errors %}
+          <div class="text-danger">{{ form_detalle.telefono.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">
+        Guardar Cambios
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block 'content' %}
+<section class="container my-5">
+  <div class="card p-4 shadow-lg">
+    <h2 class="text-center">Bienvenido, {{ user.first_name }}</h2>
+    <h3 class="mt-4">Tus datos personales:</h3>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Nombre de usuario:</strong> {{ user.username }}
+      </li>
+      <li class="list-group-item">
+        <strong>Nombre:</strong> {{ user.first_name }}
+      </li>
+      <li class="list-group-item">
+        <strong>Apellido:</strong> {{ user.last_name }}
+      </li>
+      <li class="list-group-item"><strong>Rut:</strong> {{ perfil.rut }}</li>
+      <li class="list-group-item">
+        <strong>Dirección:</strong> {{ perfil.direccion }}
+      </li>
+      <li class="list-group-item">
+        <strong>Teléfono:</strong>
+        {% if perfil.telefono %} {{ perfil.telefono }} {% else %} No
+        proporcionado {% endif %}
+      </li>
+    </ul>
+    <div class="text-center mt-4">
+      <a href="{% url 'editar_perfil' %}" class="btn btn-primary"
+        >Modificar datos</a
+      >
+    </div>
+  </div>
+</section>
+{% endblock %}

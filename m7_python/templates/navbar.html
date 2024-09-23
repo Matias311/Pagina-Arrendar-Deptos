@@ -1,56 +1,96 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid align-items-center">
-    <a class="navbar-brand h4 mb-0" href="#">Inmuebles</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid justify-content-between">
+    <a class="navbar-brand h4 mb-0" href="{% url 'home' %}">Inmuebles</a>
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a
+            class="nav-link active me-3"
+            aria-current="page"
+            href="{% url 'home' %}"
+            >Inicio</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contacto</a>
+          <a class="nav-link me-3" href="{% url 'sobre_nosotros' %}"
+            >Sobre Nosotros</a
+          >
         </li>
-        <li class="nav-item"></li>
-          <a class="nav-link" href="#">Sobre Nosotros</a>
+        <li class="nav-item">
+          <a class="nav-link me-3" href="{% url 'contacto' %}">Contacto</a>
         </li>
       </ul>
-      <form class="d-flex ms-auto" role="search">
+      <form class="d-flex me-4 w-50" role="search">
         <input
           class="form-control me-2"
           type="search"
-          placeholder="Search"
-          aria-label="Search"
+          placeholder="Buscar"
+          aria-label="Buscar"
         />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
-      <ul class="navbar-nav ms-3 mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-0">
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="cerrar_sesion(event)"
-            >Cerrar Sesión</a
+          {% if user.detalle_usuario.tipo_usuario == 'Arrendador' %}
+          <a class="btn btn-success me-3" href="#"> Crear Inmueble </a>
+          {% else %}
+          <a class="btn btn-primary me-3" href="#"> Ver Inmuebles </a>
+          {% endif %}
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
           >
-          <form
-            action="{% url 'logout' %}"
-            method="post"
-            id="logout-form"
-            style="display: none"
+            Perfil
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown"
           >
-            {% csrf_token %}
-          </form>
+            <li>
+              <a class="dropdown-item" href="{% url 'perfil' %}">Ver Perfil</a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a
+                class="dropdown-item text-danger"
+                href="#"
+                onclick="cerrar_sesion(event)"
+                >Cerrar Sesión</a
+              >
+              <form
+                action="{% url 'logout' %}"
+                method="post"
+                id="logout-form"
+                style="display: none"
+              >
+                {% csrf_token %}
+              </form>
+            </li>
+          </ul>
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+          <a class="btn btn-outline-primary" href="{% url 'login' %}"
+            >Iniciar Sesión</a
+          >
         </li>
         {% endif %}
       </ul>

@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block 'content' %}
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="w-75">
+    <h2 class="text-center mb-4">Completa tu Registro</h2>
+    <form method="post" class="bg-light p-5 rounded shadow">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="{{ form.rut.id_for_label }}">RUT</label>
+        <div class="text-center">
+          {{ form.rut }} {% if form.rut.errors %}
+          <div class="text-danger">{{ form.rut.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form.direccion.id_for_label }}">Dirección</label>
+        <div class="text-center">
+          {{ form.direccion }} {% if form.direccion.errors %}
+          <div class="text-danger">{{ form.direccion.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form.telefono.id_for_label }}">Teléfono</label>
+        <div class="text-center">
+          {{ form.telefono }} {% if form.telefono.errors %}
+          <div class="text-danger">{{ form.telefono.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form.tipo_usuario.id_for_label }}"
+          >Tipo de Usuario</label
+        >
+        <div class="text-center">
+          {{ form.tipo_usuario }} {% if form.tipo_usuario.errors %}
+          <div class="text-danger">{{ form.tipo_usuario.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Guardar</button>
+    </form>
+    <p class="text-center mt-3"></p>
+  </div>
+</div>
+{% endblock %}

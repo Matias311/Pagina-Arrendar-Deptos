@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
+import uuid
 # Create your models here.
 
 
@@ -16,7 +17,7 @@ class Detalle_Usuario(models.Model):
     direccion = models.CharField(max_length=50)
     telefono = models.CharField(max_length=9, null=True)
     tipo_usuario = models.CharField(
-        choices=Tipo_Usuario.choices, default=Tipo_Usuario.ARRENDADOR)
+        choices=Tipo_Usuario.choices, default=Tipo_Usuario.ARRENDADOR, max_length=30)
 
     def __str__(self) -> str:
         return f'Nombre: {self.usuario.first_name} {self.usuario.last_name} Rut: {self.rut} Tipo de usuario: {self.tipo_usuario}'
@@ -86,3 +87,11 @@ class Status(models.Model):
 
     def __str__(self) -> str:
         return f'Estado: {self.estado} Inmueble: {self.inmueble.nombre} Arrendatario: {self.arrendatario.first_name} {self.arrendatario.last_name}'
+
+
+class Contacto(models.Model):
+    id_contacto = models.UUIDField(default=uuid.uuid4, editable=False)
+    email = models.CharField(max_length=50, null=False, blank=False)
+    nombre = models.CharField(max_length=50, null=False, blank=False)
+    apellido = models.CharField(max_length=50, null=False, blank=False)
+    mensaje = models.TextField(max_length=500, null=False, blank=False)

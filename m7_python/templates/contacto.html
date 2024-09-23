@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block 'content' %}
+<div class="d-flex justify-content-center align-items-center py-5">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <div class="card shadow">
+      <div class="card-body">
+        <h2 class="text-center mb-4">Formulario de Contacto</h2>
+        <form
+          method="post"
+          novalidate
+          class="mx-auto d-flex flex-column align-items-center"
+        >
+          {% csrf_token %}
+          <div class="mb-3 w-100 text-center">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <div class="d-flex justify-content-center">{{ form.email }}</div>
+          </div>
+          <div class="mb-3 w-100 text-center">
+            <label for="nombre" class="form-label">Nombre</label>
+            <div class="d-flex justify-content-center">{{ form.nombre }}</div>
+          </div>
+          <div class="mb-3 w-100 text-center">
+            <label for="apellido" class="form-label">Apellido</label>
+            <div class="d-flex justify-content-center">{{ form.apellido }}</div>
+          </div>
+          <div class="mb-3 w-100 text-center">
+            <label for="mensaje" class="form-label">Mensaje</label>
+            <div class="d-flex justify-content-center">{{ form.mensaje }}</div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
