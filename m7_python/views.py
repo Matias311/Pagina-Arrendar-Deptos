@@ -1,15 +1,39 @@
 from django.shortcuts import render, redirect
-from .services import obtener_todos_inmuebles, encontrar_crear_usuario
+from .services import obtener_todos_inmuebles, encontrar_crear_usuario, traer_inmuebles_arrendador
 from .forms import RegisterForm, DetalleUserForm, UserEditForm, DetalleUserEditForm, ContactoForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 
+
 # Define la vista home
-
-
+@login_required
 def home(req):
+    if req.user.is_authenticated:
+        detalle = encontrar_crear_usuario(req.user)
+        if detalle.tipo_usuario == 'Arrendador':
+            return redirect('dashboard')
+        elif detalle.tipo_usuario == 'Arrendatario':
+            return redirect('arrendatario_home')
+        else:
+            return redirect('login')
+    else:
+        return redirect('login')
+
+
+# Vista arrendatario
+@login_required
+def arrendatario_home(req):
     inmuebles = obtener_todos_inmuebles()
-    return render(req, 'home.html', {'inmuebles': inmuebles})
+    return render(req, 'arrendatario/home.html', {'inmuebles': inmuebles})
+
+
+# Vista arrendador:
+@login_required
+def arrendador_dashboard(req):
+    usuario = req.user
+    inmuebles = traer_inmuebles_arrendador(usuario)
+    inactivos = inmuebles.filter(is_active=False).count()
+    return render(req, 'arrendador/dashboard.html', {'inmuebles': inmuebles, 'inactivos': inactivos})
 
 
 def register(req):

@@ -1,0 +1,69 @@
+{% extends 'base.html' %} {% block 'content' %}
+<section class="container">
+  <h2 class="text-center">Inmuebles Activos</h2>
+  <div class="row justify-content-center">
+    {% for i in inmuebles %} {% if i.is_active %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img
+          src="https://definicion.de/wp-content/uploads/2010/12/casa.jpg"
+          class="card-img-top"
+          alt="{{ i.nombre }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ i.nombre }}</h5>
+          <p class="card-text">{{ i.descripcion }}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Disponible: {{ i.disponible }}</li>
+            <li class="list-group-item">
+              Tipo de inmueble: {{ i.get_tipo_inmueble_display }}
+            </li>
+            <li class="list-group-item">
+              Precio de arriendo: {{ i.precio_arriendo }}
+            </li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Editar</a>
+            <a href="#" class="card-link">Eliminar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+
+  {% if inactivos > 0 %}
+  <h2 class="text-center">Inmuebles Inactivos</h2>
+  <div class="row justify-content-center">
+    {% for i in inmuebles %} {% if not i.is_active %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img
+          src="https://definicion.de/wp-content/uploads/2010/12/casa.jpg"
+          class="card-img-top"
+          alt="{{ i.nombre }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ i.nombre }}</h5>
+          <p class="card-text">{{ i.descripcion }}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Disponible: {{ i.disponible }}</li>
+            <li class="list-group-item">
+              Tipo de inmueble: {{ i.get_tipo_inmueble_display }}
+            </li>
+            <li class="list-group-item">
+              Precio de arriendo: {{ i.precio_arriendo }}
+            </li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="btn btn-primary">Editar</a>
+            <a href="#" class="btn btn-danger">Eliminar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+  {% endif %}
+</section>
+{% endblock %}
