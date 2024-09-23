@@ -1,0 +1,42 @@
+from django import forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
+from .models import Detalle_Usuario, Contacto
+
+# Creación de formulario para crear usuario
+
+
+class RegisterForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email',
+                  'password1', 'password2')
+
+
+# Creacion de formulario para crear el detalle del usuario
+class DetalleUserForm(forms.ModelForm):
+    class Meta:
+        model = Detalle_Usuario
+        fields = ['rut', 'direccion', 'telefono', 'tipo_usuario']
+
+
+# Edicion del usuario
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'email']
+
+
+# Edicion del detalle usuario
+class DetalleUserEditForm(forms.ModelForm):
+    class Meta:
+        model = Detalle_Usuario
+        fields = ['rut', 'direccion', 'telefono']
+
+
+class ContactoForm(forms.ModelForm):
+    class Meta:
+        model = Contacto
+        fields = ['email', 'nombre', 'apellido', 'mensaje']

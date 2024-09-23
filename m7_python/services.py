@@ -125,3 +125,18 @@ def eliminar_inmueble_db(id_inmueble: str) -> dict:
         }
     except Exception as e:
         print(e)
+
+
+# Buscar usuario
+def encontrar_crear_usuario(user) -> None:
+    try:
+        user_profile, created = Detalle_Usuario.objects.get_or_create(
+            usuario=user)
+        if created:
+            print("Se creo un nuevo perfil del usuario")
+        else:
+            print("El perfil ya existia")
+        return user_profile
+    except Exception as e:
+        print(e)
+        return None
