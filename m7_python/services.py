@@ -140,3 +140,20 @@ def encontrar_crear_usuario(user) -> None:
     except Exception as e:
         print(e)
         return None
+
+
+# Traer inmuebles de un arrendador
+def traer_inmuebles_arrendador(arrendador: User) -> list[Inmueble]:
+    try:
+        tipo_usuario: str = arrendador.detalle_usuario.tipo_usuario
+        if tipo_usuario != 'Arrendador':
+            print('No es arrendador')
+            return []
+        inmuebles: list[Inmueble] = Inmueble.objects.filter(
+            arrendador=arrendador)
+        if not inmuebles.exists():
+            print('No hay inmuebles')
+            return []
+        return inmuebles
+    except Exception as e:
+        print(e)
