@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block 'content' %}
+<section class="container mt-5">
+  <div class="alert alert-danger" role="alert">
+    <h2>Error</h2>
+    <p>
+      Lo sentimos, ocurrió un error inesperado. Por favor, intenta nuevamente
+      más tarde.
+    </p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Volver al inicio</a>
+  </div>
+</section>
+{% endblock %}

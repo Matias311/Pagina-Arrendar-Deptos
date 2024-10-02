@@ -28,7 +28,7 @@ class Region(models.Model):
     nombre = models.CharField(max_length=50, null=False, blank=False)
 
     def __str__(self) -> str:
-        return f'Comuna: {self.nombre}'
+        return f'{self.nombre}'
 
 
 class Comuna(models.Model):
@@ -38,7 +38,7 @@ class Comuna(models.Model):
         Region, on_delete=models.RESTRICT, related_name='comunas')
 
     def __str__(self) -> str:
-        return f'Comuna: {self.nombre}'
+        return f'{self.nombre}'
 
 
 class Inmueble(models.Model):

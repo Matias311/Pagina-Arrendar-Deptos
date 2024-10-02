@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Detalle_Usuario, Contacto
+from .models import Detalle_Usuario, Contacto, Inmueble, Status, Comuna, Region
 
 # Creación de formulario para crear usuario
 
@@ -40,3 +40,39 @@ class ContactoForm(forms.ModelForm):
     class Meta:
         model = Contacto
         fields = ['email', 'nombre', 'apellido', 'mensaje']
+
+
+# Crear inmueble
+class CrearInmuebleForm(forms.ModelForm):
+    class Meta:
+        model = Inmueble
+        fields = ['id_inmueble', 'nombre', 'descripcion', 'disponible',
+                  'm2_construidos', 'm2_terreno', 'cant_estacionamiento', 'cant_habitaciones', 'cant_banos', 'direccion', 'tipo_inmueble', 'precio_arriendo', 'is_active', 'comuna']
+
+
+# Editar inmueble
+class InmuebleEditForm(forms.ModelForm):
+    class Meta:
+        model = Inmueble
+        fields = ['nombre', 'descripcion', 'disponible',
+                  'm2_construidos', 'm2_terreno', 'cant_estacionamiento', 'cant_habitaciones', 'cant_banos', 'direccion', 'tipo_inmueble', 'precio_arriendo', 'is_active', 'comuna']
+
+
+# Filtro de comuna
+class FiltroComunaForm(forms.Form):
+    comuna = forms.ModelChoiceField(
+        queryset=Comuna.objects.all(),
+        required=False,
+        empty_label='Seleccione una Comuna',
+        label='Comuna'
+    )
+
+
+# Filtro de region
+class FiltroRegionForm(forms.Form):
+    region = forms.ModelChoiceField(
+        queryset=Region.objects.all(),
+        required=False,
+        empty_label='Seleccione una Region',
+        label='Region'
+    )

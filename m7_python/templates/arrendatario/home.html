@@ -1,5 +1,19 @@
 {% extends 'base.html' %} {% block 'content' %}
 <section class="row justify-content-center">
+  <div class="col-md-6 mb-4">
+    <form method="get" id="filtroFormRegion" class="form-inline">
+      <label for="id_region" class="mr-2">Selecciona una Región:</label>
+      {{ region_form }}
+    </form>
+  </div>
+
+  <div class="col-md-6 mb-4">
+    <form method="get" id="filtroFormComuna" class="form-inline">
+      <label for="id_comuna" class="mr-2">Selecciona una Comuna:</label>
+      {{ comuna_form }}
+    </form>
+  </div>
+
   {% for i in inmuebles %}
   <div class="col-md-4 d-flex align-items-stretch mb-4">
     <div class="card" style="width: 100%">
@@ -9,12 +23,29 @@
         alt="imagen del inmueble"
       />
       <div class="card-body">
-        <h5 class="card-title">{{i.nombre}}</h5>
-        <p class="card-text">{{i.descripcion}}</p>
-        <a href="#" class="btn btn-primary">Ver Inmueble</a>
+        <h5 class="card-title">{{ i.nombre }}</h5>
+        <p class="card-text">{{ i.descripcion }}</p>
+        <a
+          href="{% url 'detalle_inmueble_usuario' i.id_inmueble %}"
+          class="btn btn-primary"
+          >Ver Inmueble</a
+        >
       </div>
     </div>
   </div>
   {% endfor %}
+
+  <script>
+    const form_region = document.querySelector("#filtroFormRegion");
+    const form_comuna = document.querySelector("#filtroFormComuna");
+
+    form_region.addEventListener("change", (e) => {
+      form_region.submit();
+    });
+
+    form_comuna.addEventListener("change", (e) => {
+      form_comuna.submit();
+    });
+  </script>
 </section>
 {% endblock %}

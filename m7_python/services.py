@@ -2,39 +2,44 @@ from m7_python.models import Detalle_Usuario, Region, Comuna, Inmueble, Status
 from django.contrib.auth.models import User
 
 
-def crear_inmueble(data: dict, tipo_inmueble: Inmueble.Tipo_Inmueble) -> Inmueble:  # Crear Inmueble
+def crear_inmuebles(data: dict) -> Inmueble:  # Crear Inmueble
     """
         data = {
             'id_inmueble': str,
-            'id_user': int,
-            'comuna_cod': str,
             'nombre': str,
             'descripcion': str,
-            'm2_totales': int,
+            'disponible': str,
             'm2_construidos': int,
-            'num_baños': int,
-            'num_habitaciones': int,
-            'num_estacionamientos': int,
+            'm2_terreno': int,
+            'cant_estacionamiento': int,
+            'cant_habitaciones': int,
+            'cant_banos': int,
             'direccion': str,
-            'precio': int,
-            'precio_ufs': float
+            'tipo_inmueble': str,
+            'precio_arriendo': int,
+            'is_active': bool,
+            'comunacod': str,
+            'arrendador': str,
         }
     """
     try:
-        arrendador = User.objects.get(id=data['id_user'])
-        comuna = Comuna.objects.get(id_comuna=data['comuna_cod'])
+        arrendador = User.objects.get(id=data['arrendador'])
+        comuna = Comuna.objects.get(cod=data['comuna_cod'])
+
         inmueble = Inmueble(
             id_inmueble=data['id_inmueble'],
             nombre=data['nombre'],
             descripcion=data['descripcion'],
+            disponible=data['disponible'],
             m2_construidos=data['m2_construidos'],
-            m2_terreno=data['m2_totales'],
-            cant_estacionamiento=data['num_estacionamiento'],
-            cant_banos=data['num_baños'],
-            cant_habitaciones=data['num_habitaciones'],
+            m2_terreno=data['m2_terreno'],
+            cant_estacionamiento=data['cant_estacionamiento'],
+            cant_habitaciones=data['cant_habitaciones'],
+            cant_banos=data['cant_banos'],
             direccion=data['direccion'],
-            tipo_inmueble=tipo_inmueble,
-            precio_arriendo=data['precio'],
+            tipo_inmueble=data['tipo_inmueble'],
+            precio_arriendo=data['precio_arriendo'],
+            is_active=data['is_active'],
             arrendador=arrendador,
             comuna=comuna
         )
@@ -155,5 +160,63 @@ def traer_inmuebles_arrendador(arrendador: User) -> list[Inmueble]:
             print('No hay inmuebles')
             return []
         return inmuebles
+    except Exception as e:
+        print(e)
+
+
+# Traer inmueble
+def traer_inmueble(id_inmueble: str) -> Inmueble:
+    try:
+        inmueble = Inmueble.objects.get(id_inmueble=id_inmueble)
+        return inmueble
+    except Exception as e:
+        print(e)
+
+
+# Traer el estado del inmueble del arrendador
+def traer_estado_inmueble(id_inmueble: str) -> list[Status]:
+    try:
+        status = Status.objects.filter(inmueble=id_inmueble)
+        return status
+    except Exception as e:
+        print(e)
+
+
+# Crear una peticion de inmueble
+def crear_peticion_inmueble(id_inmueble: str, id_user: int) -> Status:
+    try:
+        inmueble = traer_inmueble(id_inmueble)
+        usuario = User.objects.get(id=id_user)
+        status_user = Status(inmueble=inmueble, arrendatario=usuario)
+        status_user.save()
+        return status_user
+    except Exception as e:
+        print(e)
+
+
+# Traer las peticiones de cada usuario
+def peticiones_usuario(id_usuario: int, id_inmueble: str) -> list[Status]:
+    try:
+        peticiones = Status.objects.filter(
+            arrendatario__id=id_usuario, inmueble__id_inmueble=id_inmueble)
+        return peticiones
+    except Exception as e:
+        print(e)
+
+
+# Traer status de solicitudes de un inmueble
+def traer_solicitudes_inmuble(id: int) -> list[Status]:
+    try:
+        stados = Status.objects.filter(id=id)
+        return stados
+    except Exception as e:
+        print(e)
+
+
+# Treaer todas las solicitudes de un usuario
+def traer_solicitudes_usuario(id_usuario: int) -> list[Status]:
+    try:
+        stados = Status.objects.filter(arrendatario__id=id_usuario)
+        return stados
     except Exception as e:
         print(e)

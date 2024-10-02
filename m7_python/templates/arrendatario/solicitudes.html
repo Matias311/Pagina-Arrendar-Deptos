@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block 'content' %}
+<section class="container mt-5">
+  <h2 class="text-center mb-4">Listado de Solicitudes</h2>
+  {% if peticiones %}
+  <div class="list-group">
+    {% for p in peticiones %}
+    <div class="list-group-item">
+      <h5 class="mb-1">{{ p.inmueble.nombre }}</h5>
+      <p class="mb-1">
+        Precio del arriendo: <strong>$ {{ p.inmueble.precio_arriendo }}</strong>
+      </p>
+      <p class="mb-1">
+        Fecha de solicitud: <em>{{ p.fecha|date:"d-m-Y" }}</em>
+      </p>
+      <p class="mb-1">
+        Estado de la solicitud:
+        <span class="badge bg-primary">{{ p.get_estado_display }}</span>
+      </p>
+      <a
+        href="{% url 'detalle_inmueble_usuario' p.inmueble.id_inmueble %}"
+        class="btn btn-info"
+        >Ver detalles del inmueble</a
+      >
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="text-center">
+    <p>No hay solicitudes disponibles.</p>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

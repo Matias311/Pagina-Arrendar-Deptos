@@ -1,0 +1,146 @@
+{% extends 'base.html' %} {% block 'content' %}
+<section class="container mt-5">
+  <div class="row">
+    <!-- Columna para la imagen y el título -->
+    <div class="col-md-6">
+      <h2 class="mb-4">{{ inmueble.nombre }}</h2>
+      <img
+        src="https://definicion.de/wp-content/uploads/2010/12/casa.jpg"
+        alt="{{ inmueble.nombre }}"
+        class="img-fluid rounded shadow-sm"
+      />
+    </div>
+
+    <!-- Columna para los detalles del inmueble -->
+    <div class="col-md-6">
+      <h3 class="mt-4">Detalle del inmueble</h3>
+      <ul class="list-group mb-4">
+        <li class="list-group-item">
+          Metros incluidos: {{ inmueble.m2_construidos }} m²
+        </li>
+        <li class="list-group-item">
+          Metros Totales: {{ inmueble.m2_terreno }} m²
+        </li>
+        <li class="list-group-item">
+          Cantidad de estacionamientos: {{ inmueble.cant_estacionamiento }}
+        </li>
+        <li class="list-group-item">
+          Cantidad de habitaciones: {{ inmueble.cant_habitaciones }}
+        </li>
+        <li class="list-group-item">
+          Cantidad de baños: {{ inmueble.cant_banos }}
+        </li>
+        <li class="list-group-item">
+          Tipo de inmueble: {{ inmueble.get_tipo_inmueble_display }}
+        </li>
+        <li class="list-group-item">
+          Precio de inmueble: ${{ inmueble.precio_arriendo }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Sección de Estado de Solicitudes -->
+  <div class="mt-5">
+    <h3>Estado de Solicitudes</h3>
+    <div class="list-group">
+      {% for s in solicitudes %}
+      <div class="list-group-item">
+        <strong>Nombre:</strong> {{ s.arrendatario.first_name }}<br />
+        <strong>Estado:</strong>
+        <span id="estado-{{ s.id }}">{{ s.get_estado_display }}</span>
+
+        <!-- Dropdown para cambiar el estado -->
+        <div class="dropdown mt-3">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton-{{ s.id }}"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Cambiar Estado
+          </button>
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="dropdownMenuButton-{{ s.id }}"
+          >
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                onclick="cambiarEstado({{ s.id }}, 'P')"
+                >Pendiente</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                onclick="cambiarEstado({{ s.id }}, 'A')"
+                >Aprobada</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                href="#"
+                onclick="cambiarEstado({{ s.id }}, 'R')"
+                >Rechazada</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Función para obtener el token CSRF
+  function getCSRFToken() {
+    let cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      let cookie = cookies[i].trim();
+      if (cookie.startsWith("csrftoken=")) {
+        return cookie.substring("csrftoken=".length, cookie.length);
+      }
+    }
+    return "";
+  }
+
+  // Función para cambiar el estado
+  function cambiarEstado(solicitudId, nuevoEstado) {
+    const csrftoken = getCSRFToken();
+
+    fetch(`/solicitud/cambiar_estado/${solicitudId}/`, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": csrftoken, // CSRF token
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ estado: nuevoEstado }), // Enviar el nuevo estado
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          // Actualizar el estado en el HTML si la petición es exitosa
+          console.log(data.nuevo_estado);
+
+          console.log(document.getElementById(`estado-${solicitudId}`));
+
+          document.getElementById(`estado-${solicitudId}`).innerText =
+            data.nuevo_estado;
+        } else {
+          alert("Error al cambiar el estado");
+        }
+      })
+      .catch((error) => {
+        console.error("Error en la petición:", error);
+        alert("Hubo un error al procesar la solicitud");
+      });
+  }
+</script>
+{% endblock %}

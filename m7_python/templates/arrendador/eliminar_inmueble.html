@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block 'content' %}
+<div class="container d-flex justify-content-center align-items-center m-4">
+  <div class="card text-center w-50">
+    <div class="card-body">
+      <h2 class="card-title">¿Estás seguro de querer eliminar?</h2>
+      <img
+        src="https://definicion.de/wp-content/uploads/2010/12/casa.jpg"
+        alt="{{ inmueble.nombre }}"
+        class="img-fluid rounded mx-auto d-block mb-3"
+        style="max-height: 200px; object-fit: cover"
+      />
+      <h4 class="card-subtitle mb-2 text-muted">{{ inmueble.nombre }}</h4>
+      <p class="card-text">{{ inmueble.descripcion }}</p>
+      <p class="card-text">
+        <strong>Dirección:</strong> {{ inmueble.direccion }}
+      </p>
+      <div class="mt-4">
+        <a
+          href="{% url 'eliminar_inmueble' inmueble.id_inmueble %}"
+          class="btn btn-danger"
+          >Sí, eliminar</a
+        >
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary"
+          >No, regresar</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

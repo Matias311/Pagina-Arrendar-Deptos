@@ -31,22 +31,25 @@
           <a class="nav-link me-3" href="{% url 'contacto' %}">Contacto</a>
         </li>
       </ul>
-      <form class="d-flex me-4 w-50" role="search">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Buscar"
-          aria-label="Buscar"
-        />
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
+
+      {% if user.is_authenticated %}
+        {% if user.detalle_usuario.tipo_usuario == "Arrendatario" %}
+          <form class="d-flex me-4 w-50" role="search" action="{% url 'arrendatario_home' %}" id="form-search">
+              <input type="text" name="search" class="form-control me-2" placeholder="Buscar inmueble" value="{{ request.GET.search }}" id="input_busqueda" />
+              <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
+        {% endif %}
+      {% endif %}
+
       <ul class="navbar-nav ms-auto mb-0">
         {% if user.is_authenticated %}
         <li class="nav-item">
           {% if user.detalle_usuario.tipo_usuario == 'Arrendador' %}
-          <a class="btn btn-success me-3" href="#"> Crear Inmueble </a>
+          <a class="btn btn-success me-3" href="{% url 'crear_inmueble' %}"
+            >Crear Inmueble</a
+          >
           {% else %}
-          <a class="btn btn-primary me-3" href="#"> Ver Inmuebles </a>
+          <a class="btn btn-primary me-3" href="{% url 'solicitudes' %}">Ver Solicitudes</a>
           {% endif %}
         </li>
         <li class="nav-item dropdown">
