@@ -190,6 +190,8 @@ def editar_inmueble(req, id_inmueble):
         if form.is_valid():
             form.save()
             return redirect('dashboard')
+        else:
+            print(form.errors)
     else:
         form = InmuebleEditForm(instance=inmueble)
     return render(req, 'arrendador/editar_inmueble.html', {'form': form})

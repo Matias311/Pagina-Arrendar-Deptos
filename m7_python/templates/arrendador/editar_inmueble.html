@@ -7,64 +7,119 @@
       {% csrf_token %}
 
       <div class="mb-3">
-        <label for="{{ form.id_inmueble.id_for_label }}" class="form-label"
-          >{{ form.id_inmueble.label }}</label
-        >
+        <label for="{{ form.id_inmueble.id_for_label }}" class="form-label">
+          {{ form.id_inmueble.label }}
+        </label>
         {{ form.id_inmueble }}
       </div>
 
       <div class="mb-3 d-flex flex-column">
-        <label for="{{ form.nombre.id_for_label }}" class="form-label"
-          >{{ form.nombre.label }}</label
-        >
+        <label for="{{ form.nombre.id_for_label }}" class="form-label">
+          {{ form.nombre.label }}
+        </label>
         {{ form.nombre }}
       </div>
 
       <div class="mb-3 d-flex flex-column">
-        <label for="{{ form.descripcion.id_for_label }}" class="form-label"
-          >{{ form.descripcion.label }}</label
-        >
+        <label for="{{ form.descripcion.id_for_label }}" class="form-label">
+          {{ form.descripcion.label }}
+        </label>
         {{ form.descripcion }}
       </div>
 
       <div class="mb-3 d-flex flex-column">
-        <label for="{{ form.direccion.id_for_label }}" class="form-label"
-          >{{ form.direccion.label }}</label
-        >
+        <label for="{{ form.direccion.id_for_label }}" class="form-label">
+          {{ form.direccion.label }}
+        </label>
         {{ form.direccion }}
       </div>
 
       <div class="mb-3 d-flex flex-column">
-        <label for="{{ form.tipo_inmueble.id_for_label }}" class="form-label"
-          >{{ form.tipo_inmueble.label }}</label
-        >
+        <label for="{{ form.tipo_inmueble.id_for_label }}" class="form-label">
+          {{ form.tipo_inmueble.label }}
+        </label>
         {{ form.tipo_inmueble }}
       </div>
 
       <div class="mb-3 d-flex flex-column">
-        <label for="{{ form.precio_arriendo.id_for_label }}" class="form-label"
-          >{{ form.precio_arriendo.label }}</label
-        >
+        <label for="{{ form.precio_arriendo.id_for_label }}" class="form-label">
+          {{ form.precio_arriendo.label }}
+        </label>
         {{ form.precio_arriendo }}
       </div>
 
-      <div class="form-check mb-3">
-        <label for="{{ form.is_active.id_for_label }}" class="form-check-label"
-          >{{ form.is_active.label }}</label
+      <!-- Agregar los campos que faltaban -->
+
+      <div class="mb-3 d-flex flex-column">
+        <label for="{{ form.m2_construidos.id_for_label }}" class="form-label">
+          {{ form.m2_construidos.label }}
+        </label>
+        {{ form.m2_construidos }}
+      </div>
+
+      <div class="mb-3 d-flex flex-column">
+        <label for="{{ form.m2_terreno.id_for_label }}" class="form-label">
+          {{ form.m2_terreno.label }}
+        </label>
+        {{ form.m2_terreno }}
+      </div>
+
+      <div class="mb-3 d-flex flex-column">
+        <label
+          for="{{ form.cant_estacionamiento.id_for_label }}"
+          class="form-label"
         >
+          {{ form.cant_estacionamiento.label }}
+        </label>
+        {{ form.cant_estacionamiento }}
+      </div>
+
+      <div class="mb-3 d-flex flex-column">
+        <label
+          for="{{ form.cant_habitaciones.id_for_label }}"
+          class="form-label"
+        >
+          {{ form.cant_habitaciones.label }}
+        </label>
+        {{ form.cant_habitaciones }}
+      </div>
+
+      <div class="mb-3 d-flex flex-column">
+        <label for="{{ form.cant_banos.id_for_label }}" class="form-label">
+          {{ form.cant_banos.label }}
+        </label>
+        {{ form.cant_banos }}
+      </div>
+
+      <div class="mb-3 d-flex flex-column">
+        <label for="{{ form.comuna.id_for_label }}" class="form-label">
+          {{ form.comuna.label }}
+        </label>
+        {{ form.comuna }}
+      </div>
+
+      <!-- Fin de los campos faltantes -->
+
+      <div class="form-check mb-3">
+        <label for="{{ form.is_active.id_for_label }}" class="form-check-label">
+          {{ form.is_active.label }}
+        </label>
         {{ form.is_active }}
       </div>
 
       <div class="form-check mb-3">
-        <label for="{{ form.is_active.id_for_label }}" class="form-check-label"
-          >{{ form.disponible.label }}</label
+        <label
+          for="{{ form.disponible.id_for_label }}"
+          class="form-check-label"
         >
+          {{ form.disponible.label }}
+        </label>
         {{ form.disponible }}
       </div>
 
       <div class="text-center mt-4">
         <button type="submit" class="btn btn-primary btn-block">
-          Crear Inmueble
+          Editar Inmueble
         </button>
       </div>
     </form>

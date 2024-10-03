@@ -52,11 +52,15 @@ class Inmueble(models.Model):
     nombre = models.CharField(max_length=350, null=False, blank=False)
     descripcion = models.TextField(max_length=1200, null=False, blank=False)
     disponible = models.BooleanField(default=True)
-    m2_construidos = models.IntegerField(validators=[MinValueValidator(1)])
-    m2_terreno = models.IntegerField(validators=[MinValueValidator(1)])
-    cant_estacionamiento = models.IntegerField()
-    cant_habitaciones = models.IntegerField(validators=[MinValueValidator(1)])
-    cant_banos = models.IntegerField(validators=[MinValueValidator(1)])
+    m2_construidos = models.IntegerField(
+        validators=[MinValueValidator(1)], default=1)
+    m2_terreno = models.IntegerField(
+        validators=[MinValueValidator(1)], default=1)
+    cant_estacionamiento = models.IntegerField(default=1)
+    cant_habitaciones = models.IntegerField(
+        validators=[MinValueValidator(1)], default=1)
+    cant_banos = models.IntegerField(
+        validators=[MinValueValidator(1)], default=1)
     direccion = models.CharField(max_length=150, null=False, blank=False)
     tipo_inmueble = models.CharField(
         choices=Tipo_Inmueble.choices, default=Tipo_Inmueble.DEPARTAMENTO)
