@@ -65,7 +65,10 @@ def arrendatario_home(req):
 def arrendador_dashboard(req):
     usuario = req.user
     inmuebles = traer_inmuebles_arrendador(usuario)
-    inactivos = inmuebles.filter(is_active=False).count()
+    if len(inmuebles) > 0:
+        inactivos = inmuebles.filter(is_active=False).count()
+    else:
+        inactivos = 0
     return render(req, 'arrendador/dashboard.html', {'inmuebles': inmuebles, 'inactivos': inactivos})
 
 
